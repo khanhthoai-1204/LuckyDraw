@@ -7,7 +7,6 @@ namespace Lucky_Draw_Promotion.Data
 {
     public class DataContext : IdentityDbContext<User>
     {
-
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -61,6 +60,10 @@ namespace Lucky_Draw_Promotion.Data
             {
                 entity.ToTable("UserTokens");
             });
+
+
+
+
         }
 
 

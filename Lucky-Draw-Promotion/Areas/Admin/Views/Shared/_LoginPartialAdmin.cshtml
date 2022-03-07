@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{                               
+                                   @UserManager.GetUserName(User) 
+                                    <form id="logoutForm" class="form-inline" asp-controller="Account" asp-area=""  asp-action="Logout">
+
+                                                        <div  id="logout" class="container-login100-form-btn">
+						                                    <input type="submit" value="Logout" class="login100-form-btn">	 
+					                                    </div>
+                                            </form>
+                            
+    
+           
+
+        
+   
+}

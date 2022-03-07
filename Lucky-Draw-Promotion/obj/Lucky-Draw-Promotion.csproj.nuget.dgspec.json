@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\khanh\\OneDrive\\Máy tính\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion.csproj": {}
+    "C:\\Users\\khanh\\OneDrive\\Máy tính\\LuckyDraw\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\khanh\\OneDrive\\Máy tính\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion.csproj": {
+    "C:\\Users\\khanh\\OneDrive\\Máy tính\\LuckyDraw\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\khanh\\OneDrive\\Máy tính\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion.csproj",
+        "projectUniqueName": "C:\\Users\\khanh\\OneDrive\\Máy tính\\LuckyDraw\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion.csproj",
         "projectName": "Lucky-Draw-Promotion",
-        "projectPath": "C:\\Users\\khanh\\OneDrive\\Máy tính\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion.csproj",
+        "projectPath": "C:\\Users\\khanh\\OneDrive\\Máy tính\\LuckyDraw\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion.csproj",
         "packagesPath": "C:\\Users\\khanh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\khanh\\OneDrive\\Máy tính\\Lucky-Draw-Promotion\\Lucky-Draw-Promotion\\obj\\",
+        "outputPath": "C:\\Users\\khanh\\OneDrive\\Máy tính\\LuckyDraw\\Lucky-Draw-Promotion\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\khanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -47,6 +51,18 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[11.0.0, )"
+            },
+            "Castle.Core": {
+              "target": "Package",
+              "version": "[4.4.1, )"
+            },
+            "DotNetCore.EmailService": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Enums.NET": {
+              "target": "Package",
+              "version": "[4.0.0, )"
             },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",

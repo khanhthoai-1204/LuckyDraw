@@ -32,7 +32,6 @@ namespace Lucky_Draw_Promotion.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConfirmPassword")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -57,7 +56,6 @@ namespace Lucky_Draw_Promotion.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
@@ -121,15 +119,15 @@ namespace Lucky_Draw_Promotion.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "535f4a5d-8916-473a-98ed-f958c78dd396",
-                            ConcurrencyStamp = "98624ace-fc58-4c41-ad47-6a58e0384e7d",
+                            Id = "1a095907-53df-457b-a5db-20d2fe834984",
+                            ConcurrencyStamp = "1c1f2bf4-5bce-4407-abd0-ad0e2646a46f",
                             Name = "SuperAdmin",
                             NormalizedName = "SuperAdmin"
                         },
                         new
                         {
-                            Id = "08988703-5365-4fca-a63c-0f4b1da28e27",
-                            ConcurrencyStamp = "cc102e74-9062-49ec-b448-6b8ba61a3b50",
+                            Id = "dd308a99-a645-4a71-8544-608e8cf03a04",
+                            ConcurrencyStamp = "fc4bc0d0-4930-4aab-9c29-ae61cbb867f5",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         });

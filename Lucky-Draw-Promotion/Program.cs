@@ -13,6 +13,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Lucky_Draw_Promotion;
 using Lucky_Draw_Promotion.Models.Account;
+using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.IO;
 
 namespace Lucky_Draw_Promotion
 {
@@ -27,7 +30,7 @@ namespace Lucky_Draw_Promotion
                 var loggerFactory = services.GetRequiredService<ILoggerFactory>();
                 try
                 {
-                    var context = services.GetRequiredService<DataContext>();
+                    var context = services.GetRequiredService<DataContext>();                   
                     var userManager = services.GetRequiredService<UserManager<User>>();
                     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                     await ContextSeed.SeedRolesAsync(userManager, roleManager);
@@ -45,9 +48,10 @@ namespace Lucky_Draw_Promotion
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
-                {
-
+                {                
                     webBuilder.UseStartup<Startup>();
                 });
-    }
+       
+        }
+    
 }

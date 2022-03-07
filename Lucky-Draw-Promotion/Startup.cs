@@ -16,6 +16,7 @@ using Microsoft.Extensions.Hosting;
 using Lucky_Draw_Promotion.Data;
 using Lucky_Draw_Promotion.Models;
 using Lucky_Draw_Promotion.Models.Account;
+using System.IO;
 
 namespace Lucky_Draw_Promotion
 {
@@ -33,41 +34,46 @@ namespace Lucky_Draw_Promotion
         {
             services.AddControllersWithViews();
             services.AddSession();
+
+           
+
             services.AddMvc();
             services.AddAutoMapper(typeof(Startup));
             services.AddRazorPages();
             services.AddAuthentication();
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-           
-
-            services.AddAuthorization(option =>
-            {
-                option.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("SuperAdmin,Administrator"));
-            });
-
-            //services.AddScoped<SmtpClient>((serviceProvider) =>
-            //{
-            //    var config = serviceProvider.GetRequiredService<IConfiguration>();
-            //    return new SmtpClient()
-            //    {
-            //        Host = config.GetValue<String>("Email:Smtp:Host"),
-            //        Port = config.GetValue<int>("Email:Smtp:Port"),
-            //        Credentials = new NetworkCredential(
-            //                config.GetValue<String>("Email:Smtp:Username"),
-            //                config.GetValue<String>("Email:Smtp:Password")
-            //            )
-            //    };
-            //});
 
             services.AddIdentity<User, IdentityRole>(opt =>
             {
-                opt.Password.RequiredLength = 8;
-                opt.Password.RequireDigit = false;
-                opt.Password.RequireUppercase = false;
+                opt.Password.RequiredLength = 6;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireUppercase = true;
                 opt.Password.RequireNonAlphanumeric = false;
-            }).AddEntityFrameworkStores<DataContext>();
+                opt.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<DataContext>().AddDefaultTokenProviders();
+            services.AddAuthorization(option =>
+            {
+                option.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("SuperAdmin,Administrator"));
+            });          
+            services.Configure<DataProtectionTokenProviderOptions>(opt =>
+                  opt.TokenLifespan = TimeSpan.FromMinutes(3));
+            services.AddScoped<SmtpClient>((serviceProvider) =>
+            {
+                var config = serviceProvider.GetRequiredService<IConfiguration>();
+                return new SmtpClient()
+                {
+                    Host = config.GetValue<String>("Email:Smtp:Host"),
+                    Port = config.GetValue<int>("Email:Smtp:Port"),
+                    Credentials = new NetworkCredential(
+                            config.GetValue<String>("Email:Smtp:Username"),
+                            config.GetValue<String>("Email:Smtp:Password")
+                        )
+                };
+            });
+           
 
+            services.Configure<GoogleCaptchaConfig>(Configuration.GetSection("GoogleRecaptcha"));
 
         }
 

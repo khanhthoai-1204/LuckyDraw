@@ -22,21 +22,20 @@ namespace Lucky_Draw_Promotion.Areas.Admin.Models
             //Seed Default User
             var defaultUser = new User
             {
-                UserName = "SuperAdmin@gmail.com",
-                Email = "SuperAdmin@gmail.com",                     
+                UserName = "khanhthoai99@gmail.com",
+                Email = "khanhthoai99@gmail.com",                     
                 EmailConfirmed = true,
-                PhoneNumberConfirmed = true,
+                PhoneNumberConfirmed=true,
             };
+           
             if (userManager.Users.All(u => u.Id != defaultUser.Id))
             {
                 var user = await userManager.FindByEmailAsync(defaultUser.Email);
                 if (user == null)
                 {
-                    await userManager.CreateAsync(defaultUser, "qweqweqwe");
+                    await userManager.CreateAsync(defaultUser, "Thoai9123@");
                     await userManager.AddToRoleAsync(defaultUser, enumRoles.SuperAdmin.ToString());
-
                 }
-
             }
         }
     }
